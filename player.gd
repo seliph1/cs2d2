@@ -3,6 +3,8 @@ class_name Player
 var speed: int
 var camera: Camera2D
 
+# Testing github
+
 func _ready():
 	speed = 200
 	camera = get_node("camera")
