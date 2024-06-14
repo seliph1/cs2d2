@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://cji14p08ju6lm"]
+
+[ext_resource type="Theme" uid="uid://b1ens5owtmhy3" path="res://objects/ui/theme/dcstyle.tres" id="1_5vr2f"]
+[ext_resource type="Script" path="res://sys/menu.gd" id="1_vglqk"]
+[ext_resource type="Texture2D" uid="uid://ynmcpqygqwhs" path="res://gfx/splash.bmp" id="2_hlybm"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5vr2f")
+script = ExtResource("1_vglqk")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hlybm")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="NewGameBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0375
+anchor_top = 0.433333
+anchor_right = 0.1875
+anchor_bottom = 0.55625
+metadata/_edit_use_anchors_ = true
+
+[node name="NewGame" type="LinkButton" parent="NewGameBox"]
+layout_mode = 2
+text = "New Game
+"
+underline = 2
+
+[node name="FindServers" type="LinkButton" parent="NewGameBox"]
+layout_mode = 2
+text = "FInd Servers
+"
+underline = 2
+
+[node name="QuickPlay" type="LinkButton" parent="NewGameBox"]
+layout_mode = 2
+text = "Quick Play"
+underline = 2
+
+[node name="CreatorBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchor_left = 0.0375
+anchor_top = 0.616667
+anchor_right = 0.2
+anchor_bottom = 0.883333
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Friends" type="LinkButton" parent="CreatorBox"]
+layout_mode = 2
+text = "Friends"
+underline = 2
+
+[node name="Editor" type="LinkButton" parent="CreatorBox"]
+layout_mode = 2
+text = "Editor"
+underline = 2
+
+[node name="Mods" type="LinkButton" parent="CreatorBox"]
+layout_mode = 2
+text = "Mods"
+underline = 2
+
+[node name="Help" type="LinkButton" parent="CreatorBox"]
+layout_mode = 2
+text = "Help"
+underline = 2
+
+[node name="Discord" type="LinkButton" parent="CreatorBox"]
+layout_mode = 2
+text = "Discord
+"
+underline = 2
+
+[node name="Options" type="LinkButton" parent="CreatorBox"]
+layout_mode = 2
+text = "Options"
+underline = 2
+
+[node name="Console" type="LinkButton" parent="."]
+layout_mode = 2
+anchor_left = 0.0375
+anchor_top = 0.333333
+anchor_right = 0.134375
+anchor_bottom = 0.36875
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+text = "Console
+"
+underline = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="LinkButton" parent="."]
+layout_mode = 2
+anchor_left = 0.037
+anchor_top = 0.933
+anchor_right = 0.091
+anchor_bottom = 0.981
+offset_left = 0.32
+offset_top = 0.159973
+offset_right = -0.240005
+offset_bottom = 0.119965
+size_flags_vertical = 8
+text = "Quit"
+underline = 2
+
+[connection signal="button_down" from="NewGameBox/NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="CreatorBox/Editor" to="." method="_on_editor_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
