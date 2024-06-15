@@ -8,6 +8,8 @@ var camera: Camera2D
 func _ready():
 	speed = 200
 	camera = get_node("camera")
+	self.position.x = 0
+	self.position.y = 0
 	
 func get_input():
 	# Player movement
