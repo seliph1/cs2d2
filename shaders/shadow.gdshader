@@ -23,7 +23,7 @@ void fragment(){
 
 void fragment() {
 	
-	float angle_rad = (angle) * PI / 180.0  * TIME;	
+	float angle_rad = (angle) * PI / 180.0;	
 	vec2 direction = vec2( sin(angle_rad), cos(angle_rad) ); 
 	vec2 sdf_pointer = screen_uv_to_sdf(SCREEN_UV); 
 	float accumulated = 0.0;
