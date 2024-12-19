@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://beg303i22bvio"]
+
+[ext_resource type="Script" path="res://sys/worldloader.gd" id="1_5hmq2"]
+[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="2_7ol7h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4al1n"]
+shader = ExtResource("2_7ol7h")
+shader_parameter/color = Color(0.309804, 0.309804, 0.309804, 1)
+shader_parameter/angle = 135.0
+shader_parameter/max_distance = 50.0
+shader_parameter/shadow_alpha = 0.788
+
+[node name="World" type="TileMapLayer"]
+script = ExtResource("1_5hmq2")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_4al1n")
+polygon = PackedVector2Array(0, 0, 0, 10000, 10000, 10000, 10000, 0)

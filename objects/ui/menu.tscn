@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cji14p08ju6lm"]
 
 [ext_resource type="Theme" uid="uid://b1ens5owtmhy3" path="res://objects/ui/theme/dcstyle.tres" id="1_5vr2f"]
-[ext_resource type="Script" path="res://sys/menu.gd" id="1_vglqk"]
+[ext_resource type="Script" path="res://objects/ui/menu.gd" id="1_vglqk"]
 [ext_resource type="Texture2D" uid="uid://ynmcpqygqwhs" path="res://gfx/splash.bmp" id="2_hlybm"]
 
 [node name="Menu" type="Control"]
@@ -122,5 +122,7 @@ text = "Quit"
 underline = 2
 
 [connection signal="button_down" from="NewGameBox/NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="NewGameBox/FindServers" to="." method="_on_find_servers_button_down"]
+[connection signal="button_down" from="NewGameBox/QuickPlay" to="." method="_on_quick_play_button_down"]
 [connection signal="button_down" from="CreatorBox/Editor" to="." method="_on_editor_button_down"]
 [connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]

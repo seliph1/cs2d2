@@ -3,7 +3,6 @@ shader_type canvas_item;
 //render_mode skip_vertex_transform;
 uniform int mask_type : hint_range(1,6) = 3;
 uniform float rotation_speed : hint_range(1,10) = 1.0;
-
 vec2 rotate(vec2 uv, vec2 pivot, float angle)
 {
 	mat2 rotation = mat2(vec2(sin(angle), -cos(angle)),

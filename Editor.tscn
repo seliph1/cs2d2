@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://hlrw4fsgedd2"]
+
+[ext_resource type="Script" path="res://objects/world/WorldScene.gd" id="1_34qom"]
+[ext_resource type="Script" path="res://sys/CameraControls.gd" id="2_gcbkd"]
+[ext_resource type="Shader" path="res://shaders/magenta.gdshader" id="2_pkxf2"]
+[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="3_cwf52"]
+[ext_resource type="PackedScene" uid="uid://cl3n7ii1pe47y" path="res://objects/ui/EditorMenu.tscn" id="3_qh2rv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nw82j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdpu7"]
+shader = ExtResource("2_pkxf2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8nc6"]
+shader = ExtResource("3_cwf52")
+shader_parameter/color = Color(0, 0, 0.0705882, 1)
+shader_parameter/angle = 135.0
+shader_parameter/max_distance = 50.0
+shader_parameter/shadow_alpha = 0.768
+
+[node name="Editor" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EditorMenu" parent="CanvasLayer" instance=ExtResource("3_qh2rv")]
+material = SubResource("CanvasItemMaterial_nw82j")
+
+[node name="MapLoader" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_qdpu7")
+script = ExtResource("1_34qom")
+map_path = "res://maps/fun_roleplay.map"
+metadata/_edit_lock_ = true
+
+[node name="ShadowLayer" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_o8nc6")
+polygon = PackedVector2Array(0, 0, 0, 32000, 32000, 32000, 32000, 0)
+metadata/_edit_lock_ = true
+
+[node name="EditorCamera" type="Camera2D" parent="."]
+script = ExtResource("2_gcbkd")
+speed = 20

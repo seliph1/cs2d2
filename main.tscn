@@ -1,11 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqxxu0cyq8hv2"]
 
-[ext_resource type="PackedScene" uid="uid://beg303i22bvio" path="res://objects/world/world_scene.tscn" id="1_3s2sl"]
-[ext_resource type="PackedScene" uid="uid://do5jnck37321t" path="res://player.tscn" id="2_gmeaj"]
+[ext_resource type="PackedScene" uid="uid://cji14p08ju6lm" path="res://objects/ui/menu.tscn" id="1_xho32"]
+[ext_resource type="Script" path="res://objects/multiplayer/Game.gd" id="2_qm8tl"]
 
 [node name="Main" type="Node"]
 
-[node name="World" parent="." instance=ExtResource("1_3s2sl")]
+[node name="Menu" parent="." instance=ExtResource("1_xho32")]
 
-[node name="Player" parent="World" instance=ExtResource("2_gmeaj")]
-position = Vector2(120, 114)
+[node name="Game" type="Node" parent="."]
+script = ExtResource("2_qm8tl")
+
+[node name="Players" type="Node2D" parent="Game"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://objects/multiplayer/MPlayer.tscn")
+spawn_path = NodePath("../Game/Players")
+spawn_limit = 20

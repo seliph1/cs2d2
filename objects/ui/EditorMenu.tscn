@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl3n7ii1pe47y"]
+
+[ext_resource type="Script" path="res://objects/ui/EditorMenu.gd" id="1_tgkbt"]
+
+[node name="EditorMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tgkbt")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.298
+anchor_bottom = 1.0
+offset_right = 69.28
+offset_bottom = -1.0
+tab_alignment = 1
+current_tab = 3
+
+[node name="Tiles" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Entities" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Tools" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Map" type="Panel" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="LoadMap" type="Button" parent="TabContainer/Map"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 94.0
+offset_bottom = 37.0
+text = "Load Map"
+
+[node name="SaveMap" type="Button" parent="TabContainer/Map"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 45.0
+offset_right = 93.0
+offset_bottom = 76.0
+text = "Save Map"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(400, 300)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "maps"
+filters = PackedStringArray("*.map")
+
+[connection signal="pressed" from="TabContainer/Map/LoadMap" to="." method="loadMapPressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="fileSelected"]
