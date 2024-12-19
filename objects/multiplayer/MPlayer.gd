@@ -8,7 +8,7 @@ extends CharacterBody2D
 		
 
 func _ready():
-	position = Vector2(1500,1500)
+	position = Vector2(1200,1200)
 	
 	if multiplayer.get_unique_id() == player_id:
 		$camera.make_current()
